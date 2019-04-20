@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aframe": "^0.9.1",
+    "aframe-animation-component": "^5.1.2",
+    "aframe-particle-system-component": "^1.1.3",
+    "aframe-react": "^4.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8"
