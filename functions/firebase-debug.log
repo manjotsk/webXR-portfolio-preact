@@ -1,0 +1,28 @@
+[debug] [2019-04-20T13:44:58.704Z] ----------------------------------------------------------------------
+[debug] [2019-04-20T13:44:58.707Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Manjot\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-04-20T13:44:58.707Z] CLI Version:   6.0.1
+[debug] [2019-04-20T13:44:58.707Z] Platform:      win32
+[debug] [2019-04-20T13:44:58.707Z] Node Version:  v10.13.0
+[debug] [2019-04-20T13:44:58.708Z] Time:          Sat Apr 20 2019 19:14:58 GMT+0530 (India Standard Time)
+[debug] [2019-04-20T13:44:58.708Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-04-20T13:44:58.724Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-04-20T13:44:58.725Z] > authorizing via signed-in user
+[debug] [2019-04-20T13:44:58.725Z] [iam] checking project portfoliovr-7b79e for permissions ["firebase.projects.get"]
+[debug] [2019-04-20T13:44:58.728Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/portfoliovr-7b79e:testIamPermissions  
+
+[debug] [2019-04-20T13:45:00.655Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-20T13:45:00.656Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/portfoliovr-7b79e  
+ 
+[debug] [2019-04-20T13:45:02.375Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'Z:\projects\vrportfolio'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-04-20T13:45:03.270Z] Fetching environment
+[debug] [2019-04-20T13:45:03.273Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/732039606025:getServerAppConfig  
+ 
+[debug] [2019-04-20T13:45:03.933Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-20T13:45:03.933Z] Starting @google-cloud/functions-emulator
+[debug] [2019-04-20T13:45:06.474Z] Parsing function triggers
+[info] +  functions: api: http://localhost:5000/portfoliovr-7b79e/us-central1/api
