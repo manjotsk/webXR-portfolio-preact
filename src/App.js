@@ -61,6 +61,10 @@ class App extends Component {
       }
       if (e.detail.intersection.point.z > 20) {
         z = 20
+        if (e.detail.intersection.point.z > 32) {
+          x = -7.70839
+          z = 30
+        }
       }
       camera.setAttribute('animation', `property: position; to: ${x} 16 ${z}`);
 
