@@ -2,9 +2,11 @@
 
 # dependencies
 *node_modules*
+*firebase-debug.log*
 /.pnp
 .pnp.js
-
+.firebase/hosting.YnVpbGQ.cache
+firebase-debug.log
 # testing
 /coverage
 
