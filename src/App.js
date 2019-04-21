@@ -28,10 +28,10 @@ class App extends Component {
   * |x: -21.641588161068125                    x: -21.686282251008972|
   * |y: 5.42248294399009                       y: 5.422482953332246  |
   * |z: 32.12562696514753                      z: -32.24175285053801 |
-  *                                                                  |
-  *                                                                  |
-  *                                                                 |
   * |                                                                |
+  *                                                                  |
+  *                                                                  |
+  *                                                                  |
   * |                                                                |
   * |                                                                |
   * |x: 21.7006089728026                        x: 21.995038278372   |
@@ -39,31 +39,29 @@ class App extends Component {
     |z: 32.16083180175642                       z: -32.17376469794766|                   
     |________________________________________________________________|
    */
-  componentDidMount() {
-    document.querySelector('#refresh-button').addEventListener('click', function () {
-      let camera = document.querySelector('#camera');
-      camera.setAttribute('animation', 'property: position; to: -7.70839 16 28');
-      console.log('CLICKED');
 
-    });
+  componentDidMount() {
+    let camera = document.querySelector('#camera');
     document.querySelector('#home').addEventListener('click', function (e) {
       console.log(e);
-      var x = e.detail.intersection.point.x, y = e.detail.intersection.point.y, z = e.detail.intersection.point.z;
-      let camera = document.querySelector('#camera');
-      if (e.detail.intersection.point.x < -5) {
-        x = -12
-      }
-      if (e.detail.intersection.point.x > 5) {
-        x = 12
-      }
-      if (e.detail.intersection.point.z < -20) {
-        z = -20
-      }
-      if (e.detail.intersection.point.z > 20) {
-        z = 20
-        if (e.detail.intersection.point.z > 32) {
-          x = -7.70839
-          z = 30
+      var x = -7.7, y = 16, z = 128
+      if (e.detail.intersection) {
+        x = e.detail.intersection.point.x; y = e.detail.intersection.point.y; z = e.detail.intersection.point.z;
+        if (e.detail.intersection.point.x < -5) {
+          x = -12
+        }
+        if (e.detail.intersection.point.x > 5) {
+          x = 12
+        }
+        if (e.detail.intersection.point.z < -20) {
+          z = -20
+        }
+        if (e.detail.intersection.point.z > 20) {
+          z = 20
+          if (e.detail.intersection.point.z > 32) {
+            x = -7.70839
+            z = 30
+          }
         }
       }
       camera.setAttribute('animation', `property: position; to: ${x} 16 ${z}`);
@@ -73,23 +71,23 @@ class App extends Component {
   }
   render() {
     return (
-      <a-scene physics="debug: true" joystick>
+      <a-scene cursor="rayOrigin: mouse" physics="debug: true" joystick>
         <a-assets>
           <a-asset-item id="horse-obj" src={`https://us-central1-portfoliovr-7b79e.cloudfunctions.net/api/WoodenCabinObj.obj`}></a-asset-item>
           <a-asset-item id="horse-mtl" src={`https://us-central1-portfoliovr-7b79e.cloudfunctions.net/api/WoodenCabinObj.mtl`}></a-asset-item>
         </a-assets>
         <a-sky color="#ECECEC"></a-sky>
 
-        <a-entity geometry="" dynamic-body  >
-          <a-camera id="camera" checkpoint-controls="mode:animate" wasd-controls="acceleration: 500" position="0 16 64">
-            <a-cursor color="#ffba70" position='0 0 -1'>
-
+        <a-entity movement-controls="controls: checkpoint" geometry="" dynamic-body  >
+          <a-camera id="camera" checkpoint-controls="mode:animate" wasd-controls="acceleration: 500" position="0 16 128">
+            <a-cursor position="0 0 -1"
+              geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01;"
+              material="color: #CCC; shader: flat;" color="#ffba70" position='0 0 -1'>
             </a-cursor>
           </a-camera>
         </a-entity>
-
+        <a-entity text="value: Manjot's Home (Under Construction) ; color: #c19a6b ; shader: msdf; font: https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/merienda/Merienda-Bold.json; align: center; alphaTest: 0.11; opacity: 0.55" position="-0.55342 26.79909 34.08816" scale="50 50 50"></a-entity>
         <a-entity static-body camera look-controls id="home" mixin="giant" obj-model="obj: #horse-obj; mtl: #horse-mtl">        </a-entity>
-        <a-entity id="refresh-button" geometry="" material="color: red" position="-7.70839 5.59318 32.13017"></a-entity>
       </a-scene>
     );
   }
