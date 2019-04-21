@@ -2,7 +2,7 @@
 
 Welcome to VRPortfolio Project by ManjotSK.
 
-###Features
+### Features
 
 - This project is based upon ReactJS and a-frame for the VR User's experiance;
 - This Project uses Firebase Functions and Hosting for asset loading and deployment. ExpressJS is being used in NodeJS
